@@ -19,7 +19,7 @@ const Dashboard = () => {
   useEffect(() => {
     // Replace the API endpoint with your actual backend endpoint
     axios
-      .get("http://localhost:5000/api/data")
+      .get("https://the-it-studio-server.onrender.com/api/data")
       .then((response) => {
         setData(response.data); // Assuming the API response is an array of objects
       })
@@ -34,7 +34,7 @@ const Dashboard = () => {
       <DataTable/>
       <div>
         <button onClick={openPopup} 
-          className="bg-blue-500 text-white px-2 py-1 mr-2">
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2">
           Add
         </button>
         <Form 

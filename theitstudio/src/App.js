@@ -9,11 +9,10 @@ import { Button } from 'flowbite-react';
 
 function App() {  
   return (
-    <div className="App bg-blue">
+    <div className="App bg-blue mr-5 ml-5">
+      <h1 className="text-4xl text-center text-blue-500 font-bold">The IT Studio</h1>
       <Dashboard />
-      <Button className="bg-blue-500 text-white px-2 py-1 mr-2">
-        Add
-      </Button>
+      
     </div>
   );
 } 

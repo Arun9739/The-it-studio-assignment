@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Label, TextInput, Checkbox, Button } from "flowbite-react";
 
-export const Form = ({ isOpen, onClose, onUpdate }) => {
+export const Form = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -11,22 +11,16 @@ export const Form = ({ isOpen, onClose, onUpdate }) => {
     hobbies: "",
   });
 
-  const [isOpens, setIsOpen] = useState(false);
-
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    const { id, value } = event.target;
+    setFormData({ ...formData, [id]: value });
   };
 
-  const handleUpdateClick = () => {
-    // Call the onUpdate prop with the current form data
-    onUpdate(formData);
-  };
 
   const handleClick = () => {
     // Replace the API endpoint with your actual backend endpoint
     axios
-      .post("http://localhost:5000/api/data", formData)
+      .post("https://the-it-studio-server.onrender.com/api/data", formData)
       .then((response) => {
         console.log(response);
       })
@@ -68,31 +62,47 @@ export const Form = ({ isOpen, onClose, onUpdate }) => {
             id="name"
             type="text"
             placeholder="Enter the name here"
-            required
             value={formData.name}
             onChange={handleChange}
           />
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="phone" value="Your phone" />
+            <Label htmlFor="phoneNumber" value="Your phone number" />
           </div>
-          <TextInput id="phone" type="phone" required value={formData.phoneNumber} onChange={handleChange}/>
+          <TextInput
+            id="phoneNumber"
+            type="tel"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <div className="mb-2 block">
             <Label htmlFor="email" value="Your email" />
           </div>
-          <TextInput id="email" type="email" required value={formData.email} onChange={handleChange}/>
+          <TextInput
+            id="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <div className="mb-2 block bg-red">
             <Label htmlFor="hobbies" value="Your hobbies" />
           </div>
-          <TextInput id="hobbies" type="text" required value={formData.hobbies} onChange={handleChange}/>
+          <TextInput
+            id="hobbies"
+            type="text"
+            value={formData.hobbies}
+            onChange={handleChange}
+          />
         </div>
-        
-        <Button type="submit" onClick={handleClick}>Save</Button>
+
+        <Button type="submit" onClick={handleClick}>
+          Save
+        </Button>
         <button onClick={onClose}>Cancel</button>
       </form>
     </div>

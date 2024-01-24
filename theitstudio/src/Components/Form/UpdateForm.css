@@ -1,0 +1,29 @@
+/* Add this to your global styles or the component's stylesheet */
+.update-form-overlay {
+    position: fixed;
+    top: 50px; /* Adjust the top value to leave space at the top */
+    left: 0;
+    max-width: fit-content;
+    height: fit-content;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top */
+    z-index: 999; /* Ensure the overlay is on top of other content */
+  }
+  
+  .update-form {
+    background: white;
+    margin-top: 50px;
+
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .button-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
