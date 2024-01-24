@@ -85,7 +85,7 @@ app.delete('/api/data/:id', async (req, res) => {
   
       // Send email using SendGrid
       const msg = {
-        to: 'arunnayakg7@gmail.com',
+        to: 'info@redpositive.in',
         from: 'nayakarun02@gmail.com',
         subject: 'Data from Selected Rows',
         text: emailContent,
